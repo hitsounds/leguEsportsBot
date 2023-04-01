@@ -3,7 +3,9 @@ import asyncio
 import time
 from datetime import datetime
 
-ID_TOKEN = input("Token:")
+print("The following tokens can be found by looking in your browser cookies while watching a stream.")
+ID_TOKEN = input("id_token:")
+ACCESS_TOKEN = input("access_token:")
 
 async def getLive(session):
     url = "https://esports-api.lolesports.com/persisted/gw/getLive"
@@ -54,7 +56,7 @@ async def watch(tourny_id, param, provider, session):
         "tournament_id":tourny_id
     }
     headers = {
-    'cookie': f"id_token={ID_TOKEN}",
+    'cookie': f"id_token={ID_TOKEN};access_token={ACCESS_TOKEN}",
     'authority': "rex.rewards.lolesports.com",
     "content-type": "application/json",
     'user-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36",
